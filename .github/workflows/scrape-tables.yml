@@ -1,0 +1,39 @@
+name: DataDash QA Table Scraper
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  scrape-and-sum:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm install
+        npx playwright install chromium
+        
+    - name: 23f3003652@ds.study.iitm.ac.in - Execute table scraping and summation
+      run: |
+        echo "🚀 Starting DataDash QA automation for web-based reports"
+        echo "📊 Scraping dynamically generated tables and computing sums"
+        node scrape-tables.js
+        
+    - name: Generate report summary
+      run: |
+        echo "✅ Table scraping completed successfully"
+        echo "📧 QA Engineer: 23f3003652@ds.study.iitm.ac.in"
+        echo "🔧 Automation tool: Playwright + GitHub Actions"
