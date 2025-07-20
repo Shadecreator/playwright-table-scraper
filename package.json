@@ -1,0 +1,17 @@
+ 
+{
+  "name": "playwright-table-scraper",
+  "version": "1.0.0",
+  "description": "Scrape and sum numbers from dynamically generated tables",
+  "main": "scrape-tables.js",
+  "scripts": {
+    "test": "playwright test",
+    "scrape": "node scrape-tables.js"
+  },
+  "dependencies": {
+    "playwright": "^1.40.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
